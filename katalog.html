@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"/>
+  <title>PAUSE – Koleksiyon Kataloğu 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #e8d48a;
+      --dark: #111111;
+      --mid: #2c2c2c;
+      --light: #f5f1eb;
+      --white: #ffffff;
+      --gray: #888;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #e8e4de;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* ==============================
+       SAYFA KABI
+    ============================== */
+    .page {
+      width: 210mm;
+      height: 297mm;
+      margin: 0 auto 6mm;
+      background: #fff;
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+    }
+
+    /* ==============================
+       KAPAK
+    ============================== */
+    .cover {
+      background: var(--dark);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cover-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.18) 0%, transparent 55%),
+        radial-gradient(ellipse at 10% 90%, rgba(201,168,76,0.10) 0%, transparent 50%),
+        linear-gradient(160deg, #0d0d0d 0%, #1a1a1a 40%, #0f0e0b 100%);
+    }
+
+    .cover-photo {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 58%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.55;
+      mix-blend-mode: luminosity;
+    }
+
+    .cover-vignette {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, #0d0d0d 28%, rgba(13,13,13,0.55) 60%, rgba(13,13,13,0.15) 100%);
+    }
+
+    .cover-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 14mm 14mm 12mm;
+    }
+
+    .cover-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cover-logo {
+      height: 38px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+
+    .cover-top-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, rgba(201,168,76,0.6), transparent);
+    }
+
+    .cover-top-year {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 8pt;
+      letter-spacing: 3px;
+      color: rgba(255,255,255,0.35);
+      font-weight: 300;
+    }
+
+    .cover-mid {
+      padding-left: 2mm;
+    }
+
+    .cover-sub {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 7.5pt;
+      letter-spacing: 6px;
+      color: var(--gold);
+      font-weight: 400;
+      text-transform: uppercase;
+      margin-bottom: 6mm;
+      display: block;
+    }
+
+    .cover-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 72pt;
+      color: #fff;
+      font-weight: 300;
+      line-height: 0.92;
+      letter-spacing: -1px;
+    }
+
+    .cover-title em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .cover-desc {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 8pt;
+      color: rgba(255,255,255,0.45);
+      font-weight: 300;
+      letter-spacing: 2px;
+      margin-top: 8mm;
+      line-height: 2;
+      max-width: 70mm;
+    }
+
+    .cover-bottom {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    .cover-categories {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .cover-cat-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 7pt;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 2px;
+      font-weight: 300;
+      text-transform: uppercase;
+    }
+
+    .cover-cat-item::before {
+      content: '';
+      width: 16px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.7;
+    }
+
+    .cover-stamp {
+      width: 18mm;
+      height: 18mm;
+      border: 1px solid rgba(201,168,76,0.4);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1px;
+    }
+
+    .cover-stamp span:first-child {
+      font-size: 14pt;
+      color: var(--gold);
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      line-height: 1;
+    }
+
+    .cover-stamp span:last-child {
+      font-size: 5.5pt;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 2px;
+      font-weight: 300;
+    }
+
+    /* ==============================
+       BÖLÜM KAPAK
+    ============================== */
+    .sec-cover {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .sec-photo-side {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sec-photo-side img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .sec-photo-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, transparent 60%, rgba(245,241,235,0.3) 100%);
+    }
+
+    .sec-text-side {
+      background: var(--light);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 16mm 12mm 16mm 10mm;
+      position: relative;
+    }
+
+    .sec-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 100pt;
+      color: rgba(201,168,76,0.12);
+      font-weight: 300;
+      line-height: 1;
+      position: absolute;
+      top: 6mm;
+      right: 6mm;
+    }
+
+    .sec-label {
+      font-size: 6.5pt;
+      letter-spacing: 4px;
+      color: var(--gold);
+      font-weight: 500;
+      text-transform: uppercase;
+      margin-bottom: 5mm;
+    }
+
+    .sec-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32pt;
+      color: var(--dark);
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 6mm;
+    }
+
+    .sec-line {
+      width: 30mm;
+      height: 1.5px;
+      background: var(--gold);
+      margin-bottom: 6mm;
+    }
+
+    .sec-desc {
+      font-size: 8pt;
+      color: var(--gray);
+      font-weight: 300;
+      line-height: 1.9;
+      letter-spacing: 0.3px;
+    }
+
+    .sec-model-tag {
+      margin-top: 10mm;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid rgba(201,168,76,0.5);
+      padding: 3mm 5mm;
+      font-size: 6.5pt;
+      letter-spacing: 2px;
+      color: var(--gold);
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+
+    /* ==============================
+       SAYFA HEADER/FOOTER
+    ============================== */
+    .ph {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 10mm;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10mm;
+      z-index: 5;
+      border-bottom: 0.5px solid #ede8e0;
+    }
+
+    .ph-brand {
+      font-size: 6.5pt;
+      letter-spacing: 4px;
+      color: var(--gold);
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+
+    .ph-cat {
+      font-size: 6pt;
+      letter-spacing: 2px;
+      color: #bbb;
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+
+    .pf {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 8mm;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10mm;
+      border-top: 0.5px solid #ede8e0;
+    }
+
+    .pf span {
+      font-size: 6pt;
+      color: #ccc;
+      letter-spacing: 1.5px;
+      font-weight: 300;
+    }
+
+    .pf-dot {
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: 0.6;
+    }
+
+    /* ==============================
+       İÇERİK ALANI
+    ============================== */
+    .content {
+      position: absolute;
+      top: 10mm; bottom: 8mm; left: 0; right: 0;
+    }
+
+    /* --- LAYOUT A: 2 büyük kart yan yana --- */
+    .layout-a {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3mm;
+      padding: 4mm 10mm 3mm;
+      height: 100%;
+    }
+
+    /* --- LAYOUT B: 1 büyük sol + 2 küçük sağ --- */
+    .layout-b {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 3mm;
+      padding: 4mm 10mm 3mm;
+      height: 100%;
+    }
+
+    .layout-b .span2 {
+      grid-row: 1 / 3;
+    }
+
+    /* --- LAYOUT C: 3 eşit sütun --- */
+    .layout-c {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 3mm;
+      padding: 4mm 10mm 3mm;
+      height: 100%;
+    }
+
+    /* --- LAYOUT D: Tam sayfa hero --- */
+    .layout-d {
+      height: 100%;
+      position: relative;
+    }
+
+    .layout-d img.hero {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .layout-d .hero-info {
+      position: absolute;
+      bottom: 10mm;
+      left: 10mm;
+      background: rgba(17,17,17,0.75);
+      backdrop-filter: blur(4px);
+      padding: 5mm 8mm;
+      max-width: 70mm;
+    }
+
+    .layout-d .hero-info h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22pt;
+      color: #fff;
+      font-weight: 300;
+      margin-bottom: 2mm;
+    }
+
+    .layout-d .hero-info p {
+      font-size: 6.5pt;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 2px;
+      font-weight: 300;
+      text-transform: uppercase;
+    }
+
+    .thumb-row {
+      position: absolute;
+      top: 10mm;
+      right: 10mm;
+      display: flex;
+      gap: 2mm;
+    }
+
+    .thumb-row img {
+      width: 22mm;
+      height: 22mm;
+      object-fit: cover;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      border-radius: 2px;
+    }
+
+    /* --- LAYOUT E: Büyük üst + 3 küçük alt --- */
+    .layout-e {
+      display: grid;
+      grid-template-rows: 1.8fr 1fr;
+      gap: 3mm;
+      padding: 4mm 10mm 3mm;
+      height: 100%;
+    }
+
+    .layout-e-bottom {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 3mm;
+    }
+
+    /* ==============================
+       KART STİLİ
+    ============================== */
+    .kart {
+      position: relative;
+      overflow: hidden;
+      border-radius: 2px;
+      background: #f0ece4;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .kart img {
+      width: 100%;
+      flex: 1;
+      object-fit: cover;
+      display: block;
+      min-height: 0;
+    }
+
+    .kart-label {
+      padding: 3mm 4mm;
+      background: #fff;
+      border-top: 1px solid #ece8e0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+
+    .kart-label .kname {
+      font-size: 7pt;
+      font-weight: 600;
+      color: #333;
+      letter-spacing: 0.5px;
+      text-transform: capitalize;
+    }
+
+    .kart-label .kmodel {
+      font-size: 6pt;
+      color: var(--gold);
+      letter-spacing: 1px;
+      font-weight: 400;
+    }
+
+    .kart-thumbs {
+      display: flex;
+      gap: 2px;
+      padding: 2px 2px 0;
+      background: #fff;
+    }
+
+    .kart-thumbs img {
+      flex: 1;
+      height: 12mm;
+      object-fit: cover;
+      border-radius: 1px;
+      min-width: 0;
+    }
+
+    .color-badge {
+      position: absolute;
+      top: 3mm;
+      left: 3mm;
+      background: rgba(17,17,17,0.65);
+      backdrop-filter: blur(3px);
+      padding: 1.5mm 3mm;
+      font-size: 6pt;
+      color: #fff;
+      letter-spacing: 1.5px;
+      font-weight: 400;
+      text-transform: uppercase;
+      border-left: 2px solid var(--gold);
+      z-index: 2;
+    }
+
+    /* ==============================
+       ARA SAYFA – ALINTI
+    ============================== */
+    .quote-page {
+      background: var(--dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20mm;
+    }
+
+    .quote-page .q-deco {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 80pt;
+      color: var(--gold);
+      opacity: 0.2;
+      line-height: 0.6;
+      margin-bottom: 8mm;
+    }
+
+    .quote-page .q-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22pt;
+      color: #fff;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.5;
+      max-width: 130mm;
+      margin-bottom: 8mm;
+    }
+
+    .quote-page .q-line {
+      width: 20mm;
+      height: 1px;
+      background: var(--gold);
+      margin: 0 auto 6mm;
+    }
+
+    .quote-page .q-brand {
+      font-size: 7pt;
+      letter-spacing: 5px;
+      color: rgba(255,255,255,0.3);
+      font-weight: 300;
+      text-transform: uppercase;
+    }
+
+    /* ==============================
+       ARKA KAPAK
+    ============================== */
+    .back-cover {
+      background: var(--dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .back-cover-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 50% 40%, rgba(201,168,76,0.1) 0%, transparent 60%),
+        #0d0d0d;
+    }
+
+    .back-cover-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6mm;
+    }
+
+    .back-cover-logo {
+      height: 55px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      opacity: 0.7;
+    }
+
+    .back-cover-line {
+      width: 50mm;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+    }
+
+    .back-cover-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16pt;
+      color: rgba(255,255,255,0.5);
+      font-style: italic;
+      font-weight: 300;
+      letter-spacing: 1px;
+    }
+
+    .back-cover-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 3mm;
+      margin-top: 4mm;
+    }
+
+    .back-cover-contact p {
+      font-size: 7pt;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 2px;
+      font-weight: 300;
+      text-align: center;
+    }
+
+    .back-cover-contact p span {
+      color: var(--gold);
+      opacity: 0.8;
+    }
+
+    /* ==============================
+       BASKI
+    ============================== */
+    @media print {
+      @page { size: A4; margin: 0; }
+      body { background: #fff; }
+      .page { margin: 0; }
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     KAPAK
+══════════════════════════════════════ -->
+<div class="page cover">
+  <div class="cover-bg"></div>
+  <img class="cover-photo" src="fotolar/tekli fotolar/siyah/1.JPG" alt=""/>
+  <div class="cover-vignette"></div>
+  <div class="cover-content">
+
+    <div class="cover-top">
+      <img class="cover-logo" src="pause.jpg" alt="PAUSE"/>
+      <div class="cover-top-line"></div>
+      <span class="cover-top-year">2026</span>
+    </div>
+
+    <div class="cover-mid">
+      <span class="cover-sub">Koleksiyon Kataloğu</span>
+      <div class="cover-title">
+        Pause<br/><em>Collection</em>
+      </div>
+      <p class="cover-desc">
+        Şık tasarım, kaliteli malzeme.<br/>
+        Her yolculuk için mükemmel<br/>
+        çanta ve valiz koleksiyonu.
+      </p>
+    </div>
+
+    <div class="cover-bottom">
+      <div class="cover-categories">
+        <div class="cover-cat-item">Tekli Valizler</div>
+        <div class="cover-cat-item">3'lü Set – 770 Model</div>
+        <div class="cover-cat-item">4'lü Set – 770 Model</div>
+        <div class="cover-cat-item">Makyaj Çantaları</div>
+      </div>
+      <div class="cover-stamp">
+        <span>770</span>
+        <span>Model</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     BÖLÜM 01: TEKLİ VALİZLER
+══════════════════════════════════════ -->
+<div class="page sec-cover">
+  <div class="sec-photo-side">
+    <img src="fotolar/tekli fotolar/taba/1.JPG" alt=""/>
+    <div class="sec-photo-overlay"></div>
+  </div>
+  <div class="sec-text-side">
+    <div class="sec-num">01</div>
+    <span class="sec-label">Koleksiyon</span>
+    <h2 class="sec-title">Tekli<br/>Valizler</h2>
+    <div class="sec-line"></div>
+    <p class="sec-desc">
+      Yolculuğunuza eşlik edecek,<br/>
+      her tarza uygun 7 renk seçeneği.<br/>
+      Hafif, dayanıklı ve şık.
+    </p>
+    <div class="sec-model-tag">770 Model · 7 Renk</div>
+  </div>
+</div>
+
+<!-- Tekli: Bej Taba (büyük) + Laci (layout-b) -->
+<div class="page">
+  <div class="ph"><span class="ph-brand">Pause</span><span class="ph-cat">Tekli Valizler</span></div>
+  <div class="content">
+    <div class="layout-b">
+      <div class="kart span2">
+        <div class="color-badge">Bej Taba</div>
+        <img src="fotolar/tekli fotolar/bej taba/1.JPG" alt=""/>
+        <div class="kart-thumbs">
+          <img src="fotolar/tekli fotolar/bej taba/1.JPG" alt=""/>
+          <img src="fotolar/tekli fotolar/bej taba/2.JPG" alt=""/>
+        </div>
+        <div class="kart-label"><span class="kname">Bej Taba</span><span class="kmodel">770</span></div>
+      </div>
+      <div class="kart">
+        <div class="color-badge">Laci</div>
+        <img src="fotolar/tekli fotolar/laci/1.JPG" alt=""/>
+        <div class="kart-label"><span class="kname">Laci</span><span class="kmodel">770</span></div>
+      </div>
+      <div class="kart">
+        <div class="color-badge">Laci</div>
+        <img src="fotolar/tekli fotolar/laci/2.JPG" alt=""/>
+        <div class="kart-label"><span class="kname">Laci – Detay</span><span class="kmodel">770</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="pf"><span>PAUSE – Koleksiyon 2026</span><div class="pf-dot"></div><span>Tekli Valizler</span></div>
+</div>
+
+<!-- Tekli: Laci Taba + Sare (layout-a) -->
+<div class="page">
+  <div class="ph"><span class="ph-brand">Pause</span><span class="ph-cat">Tekli Valizler</span></div>
+  <div class="content">
+    <div class="layout-a">
+      <div class="kart">
+        <div class="color-badge">Laci Taba</div>
+        <img src="fotolar/tekli fotolar/laci taba/1.JPG" alt=""/>
+        <div class="kart-thumbs">
+          <img src="fotolar/tekli fotolar/laci taba/1.JPG" alt=""/>
+          <img src="fotolar/tekli fotolar/laci taba/2.JPG" alt=""/>
+          <img src="fotolar/tekli fotolar/laci taba/3.JPG" alt=""/>
+          <img src="fotolar/tekli fotolar/laci taba/4.JPG" alt=""/>
+        </div>
+        <div class="kart-label"><span class="kname">Laci Taba</span><span class="kmodel">770</span></div>
+      </div>
+      <div class="kart">
+        <div class="color-badge">Sare</div>
+        <img src="fotolar/tekli fotolar/sare/1.JPG" alt=""/>
+        <div class="kart-thumbs">
+          <img src="fotolar/tekli fotolar/sare/1.JPG" alt=""/>
+          <img src="fotolar/tekli fotolar/sare/2.JPG" alt=""/>
+          <img src="fotolar/tekli fotolar/sare/3.JPG" alt=""/>
+          <img src="fotolar/tekli fotolar/sare/4.JPG" alt=""/>
+          <img src="fotolar/tekli fotolar/sare/5.JPG" alt=""/>
+        </div>
+        <div class="kart-label"><span class="kname">Sare</span><span class="kmodel">770</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="pf"><span>PAUSE – Koleksiyon 2026</span><div class="pf-dot"></div><span>Tekli Valizler</span></div>
+</div>
+
+<!-- Tekli: Siyah – tam sayfa hero -->
+<div class="page">
+  <div class="ph" style="border-bottom-color:rgba(255,255,255,0.1);background:transparent;">
+    <span class="ph-brand" style="color:rgba(255,255,255,0.6);">Pause</span>
+    <span class="ph-cat" style="color:rgba(255,255,255,0.3);">Tekli Valizler</span>
+  </div>
+  <div class="layout-d" style="height:100%;">
+    <img class="hero" src="fotolar/tekli fotolar/siyah/1.JPG" alt="Siyah"/>
+    <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 50%);"></div>
+    <div class="hero-info">
+      <h3>Siyah</h3>
+      <p>770 Model · Tekli Valiz</p>
+    </div>
+    <div class="thumb-row">
+      <img src="fotolar/tekli fotolar/siyah/2.JPG" alt=""/>
+      <img src="fotolar/tekli fotolar/siyah/3.JPG" alt=""/>
+      <img src="fotolar/tekli fotolar/siyah/4.JPG" alt=""/>
+    </div>
+  </div>
+  <div class="pf" style="background:rgba(0,0,0,0.4);border-top-color:rgba(255,255,255,0.08);">
+    <span style="color:rgba(255,255,255,0.25);">PAUSE – Koleksiyon 2026</span>
+    <div class="pf-dot"></div>
+    <span style="color:rgba(255,255,255,0.25);">Tekli Valizler</span>
+  </div>
+</div>
+
+<!-- Tekli: Siyah Taba + Taba (layout-a) -->
+<div class="page">
+  <div class="ph"><span class="ph-brand">Pause</span><span class="ph-cat">Tekli Valizler</span></div>
+  <div class="content">
+    <div class="layout-a">
+      <div class="kart">
+        <div class="color-badge">Siyah Taba</div>
+        <img src="fotolar/tekli fotolar/siyah taba/1.JPG" alt=""/>
+        <div class="kart-thumbs">
+          <img src="fotolar/tekli fotolar/siyah taba/1.JPG" alt=""/>
+          <img src="fotolar/tekli fotolar/siyah taba/2.JPG" alt=""/>
+          <img src="fotolar/tekli fotolar/siyah taba/3.JPG" alt=""/>
+          <img src="fotolar/tekli fotolar/siyah taba/4.JPG" alt=""/>
+          <img src="fotolar/tekli fotolar/siyah taba/5.JPG" alt=""/>
+        </div>
+        <div class="kart-label"><span class="kname">Siyah Taba</span><span class="kmodel">770</span></div>
+      </div>
+      <div class="kart">
+        <div class="color-badge">Taba</div>
+        <img src="fotolar/tekli fotolar/taba/1.JPG" alt=""/>
+        <div class="kart-thumbs">
+          <img src="fotolar/tekli fotolar/taba/1.JPG" alt=""/>
+          <img src="fotolar/tekli fotolar/taba/2.JPG" alt=""/>
+          <img src="fotolar/tekli fotolar/taba/3.JPG" alt=""/>
+          <img src="fotolar/tekli fotolar/taba/4.JPG" alt=""/>
+          <img src="fotolar/tekli fotolar/taba/5.JPG" alt=""/>
+        </div>
+        <div class="kart-label"><span class="kname">Taba</span><span class="kmodel">770</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="pf"><span>PAUSE – Koleksiyon 2026</span><div class="pf-dot"></div><span>Tekli Valizler</span></div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     ARA SAYFA
+══════════════════════════════════════ -->
+<div class="page quote-page">
+  <div class="q-deco">"</div>
+  <p class="q-text">Her yolculuk bir hikâye,<br/>her çanta o hikâyenin<br/>sessiz tanığıdır.</p>
+  <div class="q-line"></div>
+  <span class="q-brand">Pause · Koleksiyon 2026</span>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     BÖLÜM 02: 3'LÜ SET
+══════════════════════════════════════ -->
+<div class="page sec-cover">
+  <div class="sec-photo-side">
+    <img src="fotolar/3lü set 770 model/TIKI6511.JPG" alt=""/>
+    <div class="sec-photo-overlay"></div>
+  </div>
+  <div class="sec-text-side">
+    <div class="sec-num">02</div>
+    <span class="sec-label">Koleksiyon</span>
+    <h2 class="sec-title">3'lü<br/>Set</h2>
+    <div class="sec-line"></div>
+    <p class="sec-desc">
+      Uyumlu üçlü valiz seti.<br/>
+      Her boyut ihtiyacı için<br/>
+      şık ve pratik çözüm.
+    </p>
+    <div class="sec-model-tag">770 Model</div>
+  </div>
+</div>
+
+<div class="page">
+  <div class="ph"><span class="ph-brand">Pause</span><span class="ph-cat">3'lü Set – 770 Model</span></div>
+  <div class="content">
+    <div class="layout-e">
+      <div class="kart">
+        <img src="fotolar/3lü set 770 model/CUVP4517.JPG" alt=""/>
+        <div class="kart-label"><span class="kname">3'lü Set 770</span><span class="kmodel">770</span></div>
+      </div>
+      <div class="layout-e-bottom">
+        <div class="kart"><img src="fotolar/3lü set 770 model/EOGG5862.JPG" alt=""/></div>
+        <div class="kart"><img src="fotolar/3lü set 770 model/IOWC9150.JPG" alt=""/></div>
+        <div class="kart"><img src="fotolar/3lü set 770 model/NZZY1692.JPG" alt=""/></div>
+      </div>
+    </div>
+  </div>
+  <div class="pf"><span>PAUSE – Koleksiyon 2026</span><div class="pf-dot"></div><span>3'lü Set</span></div>
+</div>
+
+<div class="page">
+  <div class="ph"><span class="ph-brand">Pause</span><span class="ph-cat">3'lü Set – 770 Model</span></div>
+  <div class="content">
+    <div class="layout-e">
+      <div class="kart">
+        <img src="fotolar/3lü set 770 model/TRMT1910.JPG" alt=""/>
+        <div class="kart-label"><span class="kname">3'lü Set 770</span><span class="kmodel">770</span></div>
+      </div>
+      <div class="layout-e-bottom">
+        <div class="kart"><img src="fotolar/3lü set 770 model/TIKI6511.JPG" alt=""/></div>
+        <div class="kart"><img src="fotolar/3lü set 770 model/UGGN6578.JPG" alt=""/></div>
+        <div class="kart"><img src="fotolar/3lü set 770 model/XQIP4080.JPG" alt=""/></div>
+      </div>
+    </div>
+  </div>
+  <div class="pf"><span>PAUSE – Koleksiyon 2026</span><div class="pf-dot"></div><span>3'lü Set</span></div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     BÖLÜM 03: 4'LÜ SET
+══════════════════════════════════════ -->
+<div class="page sec-cover">
+  <div class="sec-photo-side">
+    <img src="fotolar/4lü set 770 model/DCAK2483.JPG" alt=""/>
+    <div class="sec-photo-overlay"></div>
+  </div>
+  <div class="sec-text-side">
+    <div class="sec-num">03</div>
+    <span class="sec-label">Koleksiyon</span>
+    <h2 class="sec-title">4'lü<br/>Set</h2>
+    <div class="sec-line"></div>
+    <p class="sec-desc">
+      Geniş aileler için tasarlanmış<br/>
+      tam kapsamlı dörtlü valiz seti.<br/>
+      Büyükten küçüğe dört boyut.
+    </p>
+    <div class="sec-model-tag">770 Model</div>
+  </div>
+</div>
+
+<div class="page">
+  <div class="ph"><span class="ph-brand">Pause</span><span class="ph-cat">4'lü Set – 770 Model</span></div>
+  <div class="content">
+    <div class="layout-a">
+      <div class="kart">
+        <img src="fotolar/4lü set 770 model/DCAK2483.JPG" alt=""/>
+        <div class="kart-label"><span class="kname">4'lü Set 770</span><span class="kmodel">770</span></div>
+      </div>
+      <div class="kart">
+        <img src="fotolar/4lü set 770 model/DRRC6023.JPG" alt=""/>
+        <div class="kart-label"><span class="kname">4'lü Set 770</span><span class="kmodel">770</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="pf"><span>PAUSE – Koleksiyon 2026</span><div class="pf-dot"></div><span>4'lü Set</span></div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     BÖLÜM 04: MAKYAJ ÇANTALARI
+══════════════════════════════════════ -->
+<div class="page sec-cover">
+  <div class="sec-photo-side">
+    <img src="fotolar/makyaj 770 model/gül kurusu/1.JPG" alt=""/>
+    <div class="sec-photo-overlay"></div>
+  </div>
+  <div class="sec-text-side">
+    <div class="sec-num">04</div>
+    <span class="sec-label">Koleksiyon</span>
+    <h2 class="sec-title">Makyaj<br/>Çantaları</h2>
+    <div class="sec-line"></div>
+    <p class="sec-desc">
+      Düzenli ve şık makyaj çantaları.<br/>
+      9 farklı renk seçeneğiyle<br/>
+      her stile uygun tasarım.
+    </p>
+    <div class="sec-model-tag">770 Model · 9 Renk</div>
+  </div>
+</div>
+
+<!-- Makyaj: Bej Gri + Gri Bej + Gül Kurusu -->
+<div class="page">
+  <div class="ph"><span class="ph-brand">Pause</span><span class="ph-cat">Makyaj Çantaları</span></div>
+  <div class="content">
+    <div class="layout-c">
+      <div class="kart">
+        <div class="color-badge">Bej Gri</div>
+        <img src="fotolar/makyaj 770 model/bej gri/1.JPG" alt=""/>
+        <div class="kart-thumbs">
+          <img src="fotolar/makyaj 770 model/bej gri/2.JPG" alt=""/>
+          <img src="fotolar/makyaj 770 model/bej gri/3.JPG" alt=""/>
+          <img src="fotolar/makyaj 770 model/bej gri/4.JPG" alt=""/>
+        </div>
+        <div class="kart-label"><span class="kname">Bej Gri</span><span class="kmodel">770</span></div>
+      </div>
+      <div class="kart">
+        <div class="color-badge">Gri Bej</div>
+        <img src="fotolar/makyaj 770 model/gri bej/1.JPG" alt=""/>
+        <div class="kart-thumbs">
+          <img src="fotolar/makyaj 770 model/gri bej/2.JPG" alt=""/>
+          <img src="fotolar/makyaj 770 model/gri bej/3.JPG" alt=""/>
+          <img src="fotolar/makyaj 770 model/gri bej/4.JPG" alt=""/>
+        </div>
+        <div class="kart-label"><span class="kname">Gri Bej</span><span class="kmodel">770</span></div>
+      </div>
+      <div class="kart">
+        <div class="color-badge">Gül Kurusu</div>
+        <img src="fotolar/makyaj 770 model/gül kurusu/1.JPG" alt=""/>
+        <div class="kart-thumbs">
+          <img src="fotolar/makyaj 770 model/gül kurusu/2.JPG" alt=""/>
+          <img src="fotolar/makyaj 770 model/gül kurusu/3.JPG" alt=""/>
+          <img src="fotolar/makyaj 770 model/gül kurusu/4.JPG" alt=""/>
+        </div>
+        <div class="kart-label"><span class="kname">Gül Kurusu</span><span class="kmodel">770</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="pf"><span>PAUSE – Koleksiyon 2026</span><div class="pf-dot"></div><span>Makyaj Çantaları</span></div>
+</div>
+
+<!-- Makyaj: Laci (büyük) + Laci Taba + Sare (layout-b) -->
+<div class="page">
+  <div class="ph"><span class="ph-brand">Pause</span><span class="ph-cat">Makyaj Çantaları</span></div>
+  <div class="content">
+    <div class="layout-b">
+      <div class="kart span2">
+        <div class="color-badge">Laci</div>
+        <img src="fotolar/makyaj 770 model/laci/1.JPG" alt=""/>
+        <div class="kart-thumbs">
+          <img src="fotolar/makyaj 770 model/laci/1.JPG" alt=""/>
+          <img src="fotolar/makyaj 770 model/laci/2.JPG" alt=""/>
+          <img src="fotolar/makyaj 770 model/laci/3.JPG" alt=""/>
+        </div>
+        <div class="kart-label"><span class="kname">Laci</span><span class="kmodel">770</span></div>
+      </div>
+      <div class="kart">
+        <div class="color-badge">Laci Taba</div>
+        <img src="fotolar/makyaj 770 model/laci taba/1.JPG" alt=""/>
+        <div class="kart-label"><span class="kname">Laci Taba</span><span class="kmodel">770</span></div>
+      </div>
+      <div class="kart">
+        <div class="color-badge">Sare</div>
+        <img src="fotolar/makyaj 770 model/sare/1.JPG" alt=""/>
+        <div class="kart-label"><span class="kname">Sare</span><span class="kmodel">770</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="pf"><span>PAUSE – Koleksiyon 2026</span><div class="pf-dot"></div><span>Makyaj Çantaları</span></div>
+</div>
+
+<!-- Makyaj: Siyah Taba + Taba + Turuncu -->
+<div class="page">
+  <div class="ph"><span class="ph-brand">Pause</span><span class="ph-cat">Makyaj Çantaları</span></div>
+  <div class="content">
+    <div class="layout-c">
+      <div class="kart">
+        <div class="color-badge">Siyah Taba</div>
+        <img src="fotolar/makyaj 770 model/siyah taba/1.JPG" alt=""/>
+        <div class="kart-thumbs">
+          <img src="fotolar/makyaj 770 model/siyah taba/2.JPG" alt=""/>
+          <img src="fotolar/makyaj 770 model/siyah taba/3.JPG" alt=""/>
+          <img src="fotolar/makyaj 770 model/siyah taba/4.JPG" alt=""/>
+        </div>
+        <div class="kart-label"><span class="kname">Siyah Taba</span><span class="kmodel">770</span></div>
+      </div>
+      <div class="kart">
+        <div class="color-badge">Taba</div>
+        <img src="fotolar/makyaj 770 model/taba/1.JPG" alt=""/>
+        <div class="kart-thumbs">
+          <img src="fotolar/makyaj 770 model/taba/2.JPG" alt=""/>
+          <img src="fotolar/makyaj 770 model/taba/3.JPG" alt=""/>
+        </div>
+        <div class="kart-label"><span class="kname">Taba</span><span class="kmodel">770</span></div>
+      </div>
+      <div class="kart">
+        <div class="color-badge">Turuncu</div>
+        <img src="fotolar/makyaj 770 model/turuncu/1.JPG" alt=""/>
+        <div class="kart-thumbs">
+          <img src="fotolar/makyaj 770 model/turuncu/2.JPG" alt=""/>
+          <img src="fotolar/makyaj 770 model/turuncu/3.JPG" alt=""/>
+          <img src="fotolar/makyaj 770 model/turuncu/4.JPG" alt=""/>
+        </div>
+        <div class="kart-label"><span class="kname">Turuncu</span><span class="kmodel">770</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="pf"><span>PAUSE – Koleksiyon 2026</span><div class="pf-dot"></div><span>Makyaj Çantaları</span></div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     ARKA KAPAK
+══════════════════════════════════════ -->
+<div class="page back-cover">
+  <div class="back-cover-bg"></div>
+  <div class="back-cover-content">
+    <img class="back-cover-logo" src="pause.jpg" alt="PAUSE"/>
+    <div class="back-cover-line"></div>
+    <p class="back-cover-tagline">Yolculuğuna Stil Kat</p>
+    <div class="back-cover-line"></div>
+    <div class="back-cover-contact">
+      <p>Koleksiyon hakkında bilgi ve sipariş için</p>
+      <p><span>PAUSE</span> · Çanta &amp; Valiz</p>
+      <p style="margin-top:2mm; font-size:6pt;">2026</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

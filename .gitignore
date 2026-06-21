@@ -1,0 +1,7 @@
+# Gereksiz dosyalar
+*.rar
+*.zip
+*.7z
+Thumbs.db
+.DS_Store
+desktop.ini
